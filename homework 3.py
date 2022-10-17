@@ -1,28 +1,37 @@
-def shopping_cart():
-shopping_list = []
-while True:
-user_question = input ("\welcome to your shopping list\n\n" + "Do you want to Show , Add , Delete , clear  or  to Quit: ")
-if user_question.lower() == "show":
+def its_a_function():
+    
+    shop_list = {}
 
-print(f"\nYour current shopping list:\n{shopping_list}")
-if user_question. lower() = "add":
-add = input ("what would you like to add?")
-shopping_list.append (add)
-print(f"\nYour current shopping list:\n{shopping_list}")
-if user_question. lower) = 'delete':
-remove = input("which Item would you like to remove?")
-shopping_list.remove(remove)
-print(f"in{remove} was removed from your shopping list. \n\n Here is your updated list:\n\n{shopping List}\n")
-if Len(shopping_list) == 0:
-print("Nothing to renove")
-if user_question.lower0() = "clear"
-shopping_list.clear()
-print (f"\nYour shopping List has been cleared \n")
-if user_question.lower() == "quit":
-print(f"\nso long\n{shopping_list}")
-break
-
-shopping_cart ()
+    while True:
+        what_do = input("Would you like to add an item, remove an item, show your list, or quit? ")
+        if (what_do == 'quit'):
+            print("Thanks! See you soon!")
+            for key, value in shop_list.items():
+                print(value," ",key)
+            break
+        
+        elif (what_do == 'show'):
+            for key, value in shop_list.items():
+                print(value," ",key)
+            
+        elif (what_do == 'add'):
+            item_tobe_added = input("What would you like to add? " )
+            if item_tobe_added in shop_list:
+                shop_list[item_tobe_added] += 1
+            else:
+                shop_list[item_tobe_added] = 1
+        
+        elif (what_do == 'delete'):
+            item_tobe_deleted = input("What would you like to delete? ")
+            if item_tobe_deleted in shop_list:
+                del shop_list[item_tobe_deleted]
+            else:
+                print("You don't have that in your list.")
+        
+        else:
+            print("Please enter add, delete, show, or quit.")
+            
+its_a_function()
 
 
 
